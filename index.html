@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Болото</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="container">
+      <div id="header">
+        <h1>Тренажер по STRAY KIDS</h1>
+      </div>
+      <div id="count">
+        <div id="ccc">Welcome to the club;)</div>
+      </div>
+      <div id="content">
+        <img id="img" src="" alt="Random Image">
+      </div>
+      <div id="answer">
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" value="1">
+          <label class="form-check-label" for="flexRadioDefault1">
+            Банчан
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" value="2">
+          <label class="form-check-label" for="flexRadioDefault1">
+            Чанбин
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" value="3">
+          <label class="form-check-label" for="flexRadioDefault1">
+            Феликс
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" value="4">
+          <label class="form-check-label" for="flexRadioDefault1">
+            Хенджин
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" value="5">
+          <label class="form-check-label" for="flexRadioDefault1">
+            Чонин
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" value="6">
+          <label class="form-check-label" for="flexRadioDefault1">
+            Джисон
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" value="7">
+          <label class="form-check-label" for="flexRadioDefault1">
+            Минхо
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked value="8">
+          <label class="form-check-label" for="flexRadioDefault2">
+            Сынмин
+          </label>
+        </div>
+        <button onclick="checkRadioButton()" class="btn btn-dark">Выбрать</button>
+      </div>
+      <div id="footer">
+        <div id=right>Количество верных ответов: 0<br/></div>
+        <div id=wrong>Количество не верных ответов: 0</div>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+        <script>
+    function generateRandomFilename() {
+            var i = Math.floor(Math.random() * 8) + 1; // случайное число от 1 до 8
+            var j = Math.floor(Math.random() * 5) + 1; // случайное число от 1 до 5
+            return i + " (" + j + ").jpg";
+    }
+    right=0;
+    wrong=0;
+    function changeImage() {
+        var image = document.getElementById("img");
+        // Путь к новому изображению
+        var path = generateRandomFilename()
+        var newImagePath = "./data/" + path ;
+        // Изменяем src изображения
+        image.src = newImagePath;
+        // Дополнительные действия при необходимости
+        return path;
+    }
+
+    function checkRadioButton() {
+      var radioButton = document.querySelector('input[name="flexRadioDefault"]:checked');
+      var div = document.getElementById("ccc");
+      var r = document.getElementById("right");
+      var w = document.getElementById("wrong");
+      if (radioButton.value === generatedPic.charAt(0)) {
+          console.log("Верно!");
+          right=right+1;
+          div.textContent = "Верно!";
+          div.style.color = "green";
+          r.textContent = "Количество верных ответов: " + right;
+      } else {
+          console.log(generatedPic.charAt(0));
+          wrong=wrong+1;
+          div.textContent = "Не верно!";
+          div.style.color = "red";
+          w.textContent = "Количество не верных ответов: " + wrong;
+      }
+      generatedPic=changeImage();
+
+}
+
+    window.addEventListener('load', () => {
+      generatedPic=changeImage();
+    });
+
+    </script>
+  </body>
+</html>

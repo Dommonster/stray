@@ -1,0 +1,53 @@
+h1{
+	text-align: center;
+}
+
+.container {
+  display: grid;
+  grid-template-areas:
+    ". header ."
+    "count count count"
+    ". content ."
+    ". answer ."
+    "footer footer footer";
+}
+
+img {
+    width: 50%; /* Изображение будет занимать 50% ширины родительского контейнера */
+    height: auto; /* Высота будет автоматически рассчитана для сохранения пропорций */
+}
+
+#header {
+  grid-area: header;
+}
+
+#count {
+  grid-area: count;
+  
+}
+
+#content {
+  display: grid;	
+  grid-area: content;
+  
+  place-items: center;
+}
+
+#answer {
+  grid-area: answer;
+  
+  column-count: 2;
+}
+
+#footer {
+  grid-area: footer;
+  
+}
+
+#right{
+	color: green;
+}
+
+#wrong{
+	color: red;
+}
